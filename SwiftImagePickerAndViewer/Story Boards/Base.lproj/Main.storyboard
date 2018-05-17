@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RfB-7B-3PE">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Selected Photos-->
+        <scene sceneID="R4z-gA-IX8">
+            <objects>
+                <collectionViewController id="MlK-5Q-GXl" customClass="SelectedPhotosViewController" customModule="SwiftImagePickerAndViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="UbG-hV-ASU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FGA-UT-sxa">
+                            <size key="itemSize" width="125" height="125"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="5pN-MJ-PDI" customClass="PreviewPhotoCell" customModule="SwiftImagePickerAndViewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hcX-MK-erC">
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="hcX-MK-erC" firstAttribute="top" secondItem="5pN-MJ-PDI" secondAttribute="top" id="TXJ-ek-2p7"/>
+                                    <constraint firstItem="hcX-MK-erC" firstAttribute="leading" secondItem="5pN-MJ-PDI" secondAttribute="leading" id="bdv-AA-JzC"/>
+                                    <constraint firstAttribute="bottom" secondItem="hcX-MK-erC" secondAttribute="bottom" id="nuY-ca-Sxn"/>
+                                    <constraint firstAttribute="trailing" secondItem="hcX-MK-erC" secondAttribute="trailing" id="ocv-5d-4x0"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="hcX-MK-erC" id="RCO-2G-pRO"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="MlK-5Q-GXl" id="f5e-G2-H7O"/>
+                            <outlet property="delegate" destination="MlK-5Q-GXl" id="3bQ-hG-7Hw"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Selected Photos" id="CYK-pf-McA">
+                        <barButtonItem key="rightBarButtonItem" title="Pick" id="9Os-F5-Z6B">
+                            <connections>
+                                <action selector="onPressPickPhotos:" destination="MlK-5Q-GXl" id="BC0-4p-MK7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="KtY-FY-tMv" kind="presentation" identifier="photoLibrary" id="Gyi-JA-LqR"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4P-4k-bEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="282.39999999999998" y="12.561576354679804"/>
+        </scene>
+        <!--All Photos-->
+        <scene sceneID="3uv-oT-W7c">
+            <objects>
+                <collectionViewController id="Mxc-3O-4lh" customClass="PhotoLibraryViewController" customModule="SwiftImagePickerAndViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Mgc-Qb-kYp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8sf-VE-b4V">
+                            <size key="itemSize" width="125" height="125"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="vd8-ca-Vl6" customClass="PhotoPickerCell" customModule="SwiftImagePickerAndViewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hE1-K6-AbJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="124"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qB4-Ov-Eob">
+                                            <rect key="frame" x="90" y="5" width="30" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="15"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SsH-vD-V3c">
+                                            <rect key="frame" x="70" y="100" width="50" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="grd-hZ-0ef">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hE1-K6-AbJ" secondAttribute="trailing" id="4hS-Jw-uKv"/>
+                                    <constraint firstItem="hE1-K6-AbJ" firstAttribute="top" secondItem="vd8-ca-Vl6" secondAttribute="top" id="7Gn-pC-7iH"/>
+                                    <constraint firstItem="hE1-K6-AbJ" firstAttribute="leading" secondItem="vd8-ca-Vl6" secondAttribute="leading" id="cWG-qv-aLO"/>
+                                    <constraint firstAttribute="bottom" secondItem="hE1-K6-AbJ" secondAttribute="bottom" id="jDg-ia-umh"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="coverView" destination="grd-hZ-0ef" id="6f9-n4-REk"/>
+                                    <outlet property="imageView" destination="hE1-K6-AbJ" id="WIo-nU-rwi"/>
+                                    <outlet property="indexLabel" destination="qB4-Ov-Eob" id="d5e-We-Key"/>
+                                    <outlet property="videoLabel" destination="SsH-vD-V3c" id="oav-eB-wU2"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Mxc-3O-4lh" id="FVi-Zn-AGd"/>
+                            <outlet property="delegate" destination="Mxc-3O-4lh" id="1dC-IG-saq"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="All Photos" id="k9e-MZ-uZD">
+                        <barButtonItem key="leftBarButtonItem" image="cancel" id="nxG-5O-3pj">
+                            <connections>
+                                <action selector="onPressCancel:" destination="Mxc-3O-4lh" id="NO6-pb-ZSb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="done" id="ufY-yU-Qpc">
+                            <connections>
+                                <action selector="onPressDone:" destination="Mxc-3O-4lh" id="HM6-7B-xJU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yNN-xK-mlw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1477.5999999999999" y="12.561576354679804"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="c9b-K2-WJa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RfB-7B-3PE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="mdo-9e-sqm">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MlK-5Q-GXl" kind="relationship" relationship="rootViewController" id="e0A-ZJ-Z4p"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nDB-yp-wbX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="178.5" y="13"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rCZ-OS-IaM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KtY-FY-tMv" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="I01-x4-8B5">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Mxc-3O-4lh" kind="relationship" relationship="rootViewController" id="yu5-54-p3Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fb5-LP-Nl1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1310" y="13"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cancel" width="25" height="25"/>
+        <image name="done" width="25" height="25"/>
+    </resources>
+</document>
